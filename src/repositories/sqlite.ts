@@ -4,11 +4,13 @@ import { dirname } from 'node:path';
 import type { PollingStationResult } from '../core/normalize';
 import type { Profile } from '../config/profiles';
 import type {
+  CandidateDetail,
   CandidateSummary,
   ExteriorLocalityResult,
   ImportLogEntry,
   LocalityResult,
   Repository,
+  SearchSectionResult,
   SummaryResult,
 } from './repository';
 
@@ -617,6 +619,121 @@ export class SqliteRepository implements Repository {
       if (r.status === 'erro' || r.status === 'quarentena') errors++;
     }
     return { processed, errors };
+  }
+
+  async getCandidateDetail(profile: Profile, candidateNumber: string): Promise<CandidateDetail | undefined> {
+    const candStmt = this.db.prepare(`
+      SELECT candidate_number, name, party, SUM(votes) as total_votes
+      FROM section_candidates
+      WHERE mode = ? AND year = ? AND round = ? AND election = ? AND candidate_number = ?
+      GROUP BY candidate_number
+    `);
+
+    const candRow = candStmt.get(
+      profile.mode,
+      profile.year,
+      profile.round,
+      profile.election,
+      candidateNumber
+    ) as { candidate_number: string; name: string | null; party: string | null; total_votes: number | null } | undefined;
+
+    if (!candRow) return undefined;
+
+    const validStmt = this.db.prepare(`
+      SELECT SUM(votes) as total_valid
+      FROM section_candidates
+      WHERE mode = ? AND year = ? AND round = ? AND election = ?
+    `);
+    const validRow = validStmt.get(
+      profile.mode,
+      profile.year,
+      profile.round,
+      profile.election
+    ) as { total_valid: number | null } | undefined;
+
+    const ufStmt = this.db.prepare(`
+      SELECT s.uf, SUM(sc.votes) as votes
+      FROM section_candidates sc
+      JOIN sections s ON s.key = sc.section_key
+      WHERE sc.mode = ? AND sc.year = ? AND sc.round = ? AND sc.election = ? AND sc.candidate_number = ?
+      GROUP BY s.uf
+      ORDER BY s.uf ASC
+    `);
+    const ufRows = ufStmt.all(
+      profile.mode,
+      profile.year,
+      profile.round,
+      profile.election,
+      candidateNumber
+    ) as { uf: string; votes: number }[];
+
+    const locStmt = this.db.prepare(`
+      SELECT s.uf, s.locality, SUM(sc.votes) as votes
+      FROM section_candidates sc
+      JOIN sections s ON s.key = sc.section_key
+      WHERE sc.mode = ? AND sc.year = ? AND sc.round = ? AND sc.election = ? AND sc.candidate_number = ?
+      GROUP BY s.uf, s.locality
+      ORDER BY s.uf ASC, s.locality ASC
+    `);
+    const locRows = locStmt.all(
+      profile.mode,
+      profile.year,
+      profile.round,
+      profile.election,
+      candidateNumber
+    ) as { uf: string; locality: string; votes: number }[];
+
+    const totalValid = validRow?.total_valid ?? null;
+    const votesPercent =
+      totalValid !== null && totalValid > 0 && candRow.total_votes !== null
+        ? (candRow.total_votes / totalValid) * 100
+        : null;
+
+    return {
+      number: candRow.candidate_number,
+      name: candRow.name,
+      party: candRow.party,
+      totalVotes: candRow.total_votes,
+      validVotesTotal: totalValid,
+      votesPercent,
+      votesByUf: ufRows,
+      votesByLocality: locRows,
+    };
+  }
+
+  async searchSections(
+    profile: Profile,
+    query: { q?: string; uf?: string; zone?: string; section?: string }
+  ): Promise<SearchSectionResult[]> {
+    let sql = `
+      SELECT uf, locality, zone, section
+      FROM sections
+      WHERE mode = ? AND year = ? AND round = ? AND election = ?
+    `;
+    const params: string[] = [profile.mode, profile.year, profile.round, profile.election];
+
+    if (query.uf) {
+      sql += ' AND uf = ?';
+      params.push(query.uf.toUpperCase());
+    }
+    if (query.zone) {
+      sql += ' AND zone = ?';
+      params.push(query.zone);
+    }
+    if (query.section) {
+      sql += ' AND section = ?';
+      params.push(query.section);
+    }
+    if (query.q) {
+      const q = query.q.trim();
+      sql += ' AND (uf = ? OR zone = ? OR section = ? OR locality = ?)';
+      params.push(q.toUpperCase(), q, q, q);
+    }
+
+    sql += ' ORDER BY uf ASC, locality ASC, zone ASC, section ASC LIMIT 25';
+
+    const stmt = this.db.prepare(sql);
+    return stmt.all(...params) as SearchSectionResult[];
   }
 
   close() {

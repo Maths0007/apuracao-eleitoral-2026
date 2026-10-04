@@ -1,11 +1,13 @@
 import type { PollingStationResult } from '../core/normalize';
 import type { Profile } from '../config/profiles';
 import type {
+  CandidateDetail,
   CandidateSummary,
   ExteriorLocalityResult,
   ImportLogEntry,
   LocalityResult,
   Repository,
+  SearchSectionResult,
   SummaryResult,
 } from './repository';
 
@@ -230,5 +232,87 @@ export class MemoryRepository implements Repository {
       if (imp.status === 'erro' || imp.status === 'quarentena') errors++;
     }
     return { processed, errors };
+  }
+
+  async getCandidateDetail(profile: Profile, candidateNumber: string): Promise<CandidateDetail | undefined> {
+    const sections = this.filterByProfile(profile);
+    let candidateName: string | null = null;
+    let candidateParty: string | null = null;
+    let totalVotes = 0;
+    let totalValid = 0;
+    let found = false;
+
+    const ufVotes = new Map<string, number>();
+    const locVotes = new Map<string, { uf: string; locality: string; votes: number }>();
+
+    for (const sec of sections) {
+      for (const cand of sec.candidates) {
+        if (cand.votes !== null) totalValid += cand.votes;
+        if (cand.number === candidateNumber) {
+          found = true;
+          if (cand.name) candidateName = cand.name;
+          if (cand.party) candidateParty = cand.party;
+          if (cand.votes !== null) {
+            totalVotes += cand.votes;
+            ufVotes.set(sec.uf, (ufVotes.get(sec.uf) ?? 0) + cand.votes);
+            const locKey = `${sec.uf}__${sec.locality}`;
+            const existing = locVotes.get(locKey) ?? { uf: sec.uf, locality: sec.locality, votes: 0 };
+            existing.votes += cand.votes;
+            locVotes.set(locKey, existing);
+          }
+        }
+      }
+    }
+
+    if (!found) return undefined;
+
+    const votesPercent = totalValid > 0 ? (totalVotes / totalValid) * 100 : null;
+    const votesByUf = Array.from(ufVotes.entries())
+      .map(([uf, votes]) => ({ uf, votes }))
+      .sort((a, b) => a.uf.localeCompare(b.uf));
+    const votesByLocality = Array.from(locVotes.values()).sort(
+      (a, b) => a.uf.localeCompare(b.uf) || a.locality.localeCompare(b.locality)
+    );
+
+    return {
+      number: candidateNumber,
+      name: candidateName,
+      party: candidateParty,
+      totalVotes,
+      validVotesTotal: totalValid,
+      votesPercent,
+      votesByUf,
+      votesByLocality,
+    };
+  }
+
+  async searchSections(
+    profile: Profile,
+    query: { q?: string; uf?: string; zone?: string; section?: string }
+  ): Promise<SearchSectionResult[]> {
+    const sections = this.filterByProfile(profile);
+    const q = query.q?.trim().toUpperCase();
+
+    const filtered = sections.filter(s => {
+      if (query.uf && s.uf.toUpperCase() !== query.uf.toUpperCase()) return false;
+      if (query.zone && s.zone !== query.zone) return false;
+      if (query.section && s.section !== query.section) return false;
+      if (q) {
+        const match =
+          s.uf.toUpperCase() === q ||
+          s.zone === q ||
+          s.section === q ||
+          s.locality.toUpperCase() === q;
+        if (!match) return false;
+      }
+      return true;
+    });
+
+    return filtered.slice(0, 25).map(s => ({
+      uf: s.uf,
+      locality: s.locality,
+      zone: s.zone,
+      section: s.section,
+    }));
   }
 }

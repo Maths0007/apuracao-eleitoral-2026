@@ -61,6 +61,26 @@ export interface Repository {
   recordImport(entry: ImportLogEntry): Promise<void>;
   getLastImport(profile?: Profile): Promise<ImportLogEntry | undefined>;
   getImportStats(profile?: Profile): Promise<{ processed: number; errors: number }>;
+  getCandidateDetail(profile: Profile, candidateNumber: string): Promise<CandidateDetail | undefined>;
+  searchSections(profile: Profile, query: { q?: string; uf?: string; zone?: string; section?: string }): Promise<SearchSectionResult[]>;
   close?(): void;
 }
+
+export type CandidateDetail = {
+  number: string;
+  name: string | null;
+  party: string | null;
+  totalVotes: number | null;
+  validVotesTotal: number | null;
+  votesPercent: number | null;
+  votesByUf: { uf: string; votes: number }[];
+  votesByLocality: { uf: string; locality: string; votes: number }[];
+};
+
+export type SearchSectionResult = {
+  uf: string;
+  locality: string;
+  zone: string;
+  section: string;
+};
 

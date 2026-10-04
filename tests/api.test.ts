@@ -11,6 +11,8 @@ import { GET as getLocalidades } from '../src/app/api/localidades/route';
 import { GET as getSecao } from '../src/app/api/secao/route';
 import { GET as getExterior } from '../src/app/api/exterior/route';
 import { GET as getStatus } from '../src/app/api/status/route';
+import { GET as getCandidato } from '../src/app/api/candidato/route';
+import { GET as getBusca } from '../src/app/api/busca/route';
 
 const p1 = profiles[0]!;
 
@@ -173,5 +175,101 @@ describe('API Route Handlers', () => {
     expect(res.status).toBe(400);
     const json = await res.json();
     expect(json.motivo).toContain('docs/lacunas.md#contratos-nao-confirmados: perfil-eleitoral');
+  });
+
+  it('GET /api/candidato retorna detalhes factuais do candidato ou 404 quando inexistente', async () => {
+    // Candidato inexistente
+    const reqNotFound = new Request('http://localhost:3000/api/candidato?perfil=2022-1&numero=99999');
+    const resNotFound = await getCandidato(reqNotFound);
+    expect(resNotFound.status).toBe(404);
+
+    // Candidato existente (ex: 13)
+    const reqFound = new Request('http://localhost:3000/api/candidato?perfil=2022-1&numero=13');
+    const resFound = await getCandidato(reqFound);
+    expect(resFound.status).toBe(200);
+    const jsonFound = await resFound.json();
+    expect(jsonFound.dados.number).toBe('13');
+    expect(jsonFound.dados.totalVotes).toBeGreaterThan(0);
+    expect(jsonFound.dados.votesByUf.length).toBeGreaterThan(0);
+  });
+
+  it('GET /api/busca busca seções no banco e retorna array vazio quando não encontrar', async () => {
+    // Busca sem resultado
+    const reqEmpty = new Request('http://localhost:3000/api/busca?perfil=2022-1&q=9999999');
+    const resEmpty = await getBusca(reqEmpty);
+    expect(resEmpty.status).toBe(200);
+    const jsonEmpty = await resEmpty.json();
+    expect(jsonEmpty.dados).toEqual([]);
+
+    // Busca com resultado por zona
+    const reqFound = new Request('http://localhost:3000/api/busca?perfil=2022-1&q=1');
+    const resFound = await getBusca(reqFound);
+    expect(resFound.status).toBe(200);
+    const jsonFound = await resFound.json();
+    expect(jsonFound.dados.length).toBeGreaterThan(0);
+    expect(jsonFound.dados[0].zone).toBe('1');
+  });
+
+  it('perfil histórico configurado com ELECTION_MODE=historical ativa ensaio e exibe banner', async () => {
+    const originalEnv = { ...process.env };
+    try {
+      process.env.ELECTION_MODE = 'historical';
+      process.env.ELECTION_YEAR = '2022';
+      process.env.ELECTION_ROUND = '1';
+
+      // Requisição sem parâmetro explícito de URL (como o usuário comum no navegador)
+      const reqStatus = new Request('http://localhost:3000/api/status');
+      const resStatus = await getStatus(reqStatus);
+      const jsonStatus = await resStatus.json();
+
+      expect(jsonStatus.status).toBe('atualizado');
+      expect(jsonStatus.dados.perfilAtivo.mode).toBe('historico');
+      expect(jsonStatus.dados.perfilAtivo.year).toBe('2022');
+      expect(jsonStatus.dados.perfilAtivo.round).toBe('1');
+      expect(jsonStatus.aviso).toBe('ENSAIO — DADOS HISTÓRICOS OFICIAIS DO TSE — ELEIÇÃO 2022 — 1º TURNO');
+
+      const reqResumo = new Request('http://localhost:3000/api/resumo');
+      const resResumo = await getResumo(reqResumo);
+      const jsonResumo = await resResumo.json();
+
+      expect(jsonResumo.aviso).toBe('ENSAIO — DADOS HISTÓRICOS OFICIAIS DO TSE — ELEIÇÃO 2022 — 1º TURNO');
+      expect(jsonResumo.dados.totalSections).toBe(3);
+    } finally {
+      process.env = originalEnv;
+    }
+  });
+
+  it('sem variáveis de ambiente, padrão é 2026 e nunca exibe dados de 2022', async () => {
+    const originalEnv = { ...process.env };
+    try {
+      delete process.env.ELECTION_MODE;
+      delete process.env.ELECTION_YEAR;
+      delete process.env.ELECTION_ROUND;
+
+      const reqStatus = new Request('http://localhost:3000/api/status');
+      const resStatus = await getStatus(reqStatus);
+      const jsonStatus = await resStatus.json();
+
+      expect(jsonStatus.status).toBe('atualizado');
+      expect(jsonStatus.dados.perfilAtivo.mode).toBe('atual');
+      expect(jsonStatus.dados.perfilAtivo.year).toBe('2026');
+      expect(jsonStatus.dados.perfilAtivo.round).toBe('1');
+      expect(jsonStatus.aviso).toBeNull();
+
+      const reqResumo = new Request('http://localhost:3000/api/resumo');
+      const resResumo = await getResumo(reqResumo);
+      const jsonResumo = await resResumo.json();
+
+      // Não traz dados de 2022
+      expect(jsonResumo.status).toBe('indisponivel');
+      expect(jsonResumo.dados.totalSections).toBe(0);
+      expect(jsonResumo.dados.turnout).toBeNull();
+      expect(jsonResumo.dados.whites).toBeNull();
+      expect(jsonResumo.dados.nulls).toBeNull();
+      expect(jsonResumo.aviso).toBeNull();
+      expect(jsonResumo.motivo).toContain('Aguardando publicação oficial');
+    } finally {
+      process.env = originalEnv;
+    }
   });
 });
