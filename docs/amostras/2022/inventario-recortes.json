@@ -1,0 +1,592 @@
+[
+  {
+    "arquivo_zip": "bweb_1t_AC_051020221321.zip",
+    "zip_bytes": 6125666,
+    "zip_sha256": "8ac224728398639681776ce1ed1a6c454d897aae6f4b5eba8b172a42c98104c8",
+    "csv_original": "bweb_1t_AC_051020221321.csv",
+    "csv_bytes": 143132720,
+    "membros": [
+      {
+        "nome": "bweb_1t_AC_051020221321.csv",
+        "bytes": 143132720
+      },
+      {
+        "nome": "leiame-boletimurnaweb.pdf",
+        "bytes": 337455
+      }
+    ],
+    "linhas_completas": 292376,
+    "secoes_presidente": 2124,
+    "identificadores": [
+      [
+        "406",
+        "544",
+        "1"
+      ]
+    ],
+    "tipos_urna": [
+      {
+        "codigo": "1",
+        "descricao": "APURADA",
+        "linhas": 292376
+      }
+    ],
+    "recorte": "bweb_1t_AC_051020221321.recorte.csv",
+    "recorte_bytes": 6814,
+    "recorte_sha256": "71f3f7c92d15c4d3f9c6837ea59a07570c475171f33b58029e742d88d6cc9874",
+    "amostras": [
+      {
+        "chave": [
+          "2022",
+          "406",
+          "544",
+          "1",
+          "AC",
+          "1392",
+          "1",
+          "3"
+        ],
+        "localidade": "RIO BRANCO",
+        "local": "1279",
+        "secoes_agregadas": [
+          "#NULO#"
+        ],
+        "comparecimento_valores": [
+          "155"
+        ],
+        "aptos_valores": [
+          "185"
+        ],
+        "abstencoes_valores": [
+          "30"
+        ],
+        "votos_por_tipo": {
+          "Nulo": 1,
+          "Nominal": 152,
+          "Branco": 2
+        },
+        "linhas": 7,
+        "criterio": "primeira seção com linhas explícitas de branco e nulo"
+      },
+      {
+        "chave": [
+          "2022",
+          "406",
+          "544",
+          "1",
+          "AC",
+          "1392",
+          "1",
+          "9"
+        ],
+        "localidade": "RIO BRANCO",
+        "local": "1058",
+        "secoes_agregadas": [
+          "11"
+        ],
+        "comparecimento_valores": [
+          "222"
+        ],
+        "aptos_valores": [
+          "283"
+        ],
+        "abstencoes_valores": [
+          "61"
+        ],
+        "votos_por_tipo": {
+          "Nominal": 216,
+          "Nulo": 4,
+          "Branco": 2
+        },
+        "linhas": 6,
+        "criterio": "primeira seção com DS_AGREGADAS preenchido"
+      }
+    ],
+    "recortes_adicionais": []
+  },
+  {
+    "arquivo_zip": "bweb_1t_ZZ_051020221321.zip",
+    "zip_bytes": 503717,
+    "zip_sha256": "c8daf4a7b220035525cfca4ea2b64891e57dc0025985d03175e98f2565623c60",
+    "csv_original": "bweb_1t_ZZ_051020221321.csv",
+    "csv_bytes": 4085687,
+    "membros": [
+      {
+        "nome": "bweb_1t_ZZ_051020221321.csv",
+        "bytes": 4085687
+      },
+      {
+        "nome": "leiame-boletimurnaweb.pdf",
+        "bytes": 337455
+      }
+    ],
+    "linhas_completas": 8695,
+    "secoes_presidente": 1018,
+    "identificadores": [
+      [
+        "406",
+        "544",
+        "1"
+      ]
+    ],
+    "tipos_urna": [
+      {
+        "codigo": "1",
+        "descricao": "APURADA",
+        "linhas": 8691
+      },
+      {
+        "codigo": "4",
+        "descricao": "ANULADA",
+        "linhas": 4
+      }
+    ],
+    "recorte": "bweb_1t_ZZ_051020221321.recorte.csv",
+    "recorte_bytes": 5914,
+    "recorte_sha256": "827ae1bad977c6671b6236fdb1d9ac9048b091659df7bc12cd8ac83b66d1f6eb",
+    "amostras": [
+      {
+        "chave": [
+          "2022",
+          "406",
+          "544",
+          "1",
+          "ZZ",
+          "29319",
+          "1",
+          "7"
+        ],
+        "localidade": "ARTIGAS",
+        "local": "1015",
+        "secoes_agregadas": [
+          "1051"
+        ],
+        "comparecimento_valores": [
+          "425"
+        ],
+        "aptos_valores": [
+          "686"
+        ],
+        "abstencoes_valores": [
+          "261"
+        ],
+        "votos_por_tipo": {
+          "Branco": 9,
+          "Nulo": 4,
+          "Nominal": 412
+        },
+        "linhas": 11,
+        "criterio": "primeira seção com linhas explícitas de branco e nulo"
+      }
+    ],
+    "recortes_adicionais": [
+      {
+        "arquivo": "bweb_1t_ZZ_051020221321.anuladas.recorte.csv",
+        "bytes": 2146,
+        "sha256": "4d5c166ba89b4750e01db47bfcc6c1f3a2d7f680c0910473f7f894fbab91baa8",
+        "criterio": "Todas as linhas com DS_TIPO_URNA = ANULADA, sem alteração dos bytes"
+      }
+    ]
+  },
+  {
+    "arquivo_zip": "bweb_2t_AC_311020221535.zip",
+    "zip_bytes": 538139,
+    "zip_sha256": "c7c1e1dd9d752f47ce6fdb05ced92001dee85d1fcbff81f850e1cb4aa404e127",
+    "csv_original": "bweb_2t_AC_311020221535.csv",
+    "csv_bytes": 3695151,
+    "membros": [
+      {
+        "nome": "bweb_2t_AC_311020221535.csv",
+        "bytes": 3695151
+      },
+      {
+        "nome": "leiame-boletimurnaweb.pdf",
+        "bytes": 337455
+      }
+    ],
+    "linhas_completas": 7925,
+    "secoes_presidente": 2124,
+    "identificadores": [
+      [
+        "407",
+        "545",
+        "2"
+      ]
+    ],
+    "tipos_urna": [
+      {
+        "codigo": "1",
+        "descricao": "APURADA",
+        "linhas": 7925
+      }
+    ],
+    "recorte": "bweb_2t_AC_311020221535.recorte.csv",
+    "recorte_bytes": 4421,
+    "recorte_sha256": "40e13ccafe196b935465c2fb30312da18d1906f6f32430aeb78f746304131e7a",
+    "amostras": [
+      {
+        "chave": [
+          "2022",
+          "407",
+          "545",
+          "2",
+          "AC",
+          "1392",
+          "1",
+          "3"
+        ],
+        "localidade": "RIO BRANCO",
+        "local": "1279",
+        "secoes_agregadas": [
+          "#NULO#"
+        ],
+        "comparecimento_valores": [
+          "147"
+        ],
+        "aptos_valores": [
+          "185"
+        ],
+        "abstencoes_valores": [
+          "38"
+        ],
+        "votos_por_tipo": {
+          "Nominal": 144,
+          "Nulo": 1,
+          "Branco": 2
+        },
+        "linhas": 4,
+        "criterio": "primeira seção com linhas explícitas de branco e nulo"
+      },
+      {
+        "chave": [
+          "2022",
+          "407",
+          "545",
+          "2",
+          "AC",
+          "1392",
+          "1",
+          "9"
+        ],
+        "localidade": "RIO BRANCO",
+        "local": "1058",
+        "secoes_agregadas": [
+          "11"
+        ],
+        "comparecimento_valores": [
+          "207"
+        ],
+        "aptos_valores": [
+          "283"
+        ],
+        "abstencoes_valores": [
+          "76"
+        ],
+        "votos_por_tipo": {
+          "Nominal": 201,
+          "Nulo": 3,
+          "Branco": 3
+        },
+        "linhas": 4,
+        "criterio": "primeira seção com DS_AGREGADAS preenchido"
+      }
+    ],
+    "recortes_adicionais": []
+  },
+  {
+    "arquivo_zip": "bweb_2t_ZZ_311020221535.zip",
+    "zip_bytes": 433558,
+    "zip_sha256": "7be450456258a2f0f106b09010fb5b41aafca229373d4d4d3357662a65bcb789",
+    "csv_original": "bweb_2t_ZZ_311020221535.csv",
+    "csv_bytes": 1837151,
+    "membros": [
+      {
+        "nome": "bweb_2t_ZZ_311020221535.csv",
+        "bytes": 1837151
+      },
+      {
+        "nome": "leiame-boletimurnaweb.pdf",
+        "bytes": 337455
+      }
+    ],
+    "linhas_completas": 3968,
+    "secoes_presidente": 1018,
+    "identificadores": [
+      [
+        "407",
+        "545",
+        "2"
+      ]
+    ],
+    "tipos_urna": [
+      {
+        "codigo": "1",
+        "descricao": "APURADA",
+        "linhas": 3967
+      },
+      {
+        "codigo": "4",
+        "descricao": "ANULADA",
+        "linhas": 1
+      }
+    ],
+    "recorte": "bweb_2t_ZZ_311020221535.recorte.csv",
+    "recorte_bytes": 2584,
+    "recorte_sha256": "f3ef21c24dad7304bc3bb067c80175468425ec94a0fb8662d223b8094201326b",
+    "amostras": [
+      {
+        "chave": [
+          "2022",
+          "407",
+          "545",
+          "2",
+          "ZZ",
+          "29319",
+          "1",
+          "7"
+        ],
+        "localidade": "ARTIGAS",
+        "local": "1015",
+        "secoes_agregadas": [
+          "1051"
+        ],
+        "comparecimento_valores": [
+          "428"
+        ],
+        "aptos_valores": [
+          "686"
+        ],
+        "abstencoes_valores": [
+          "258"
+        ],
+        "votos_por_tipo": {
+          "Nulo": 5,
+          "Branco": 6,
+          "Nominal": 417
+        },
+        "linhas": 4,
+        "criterio": "primeira seção com linhas explícitas de branco e nulo"
+      }
+    ],
+    "recortes_adicionais": [
+      {
+        "arquivo": "bweb_2t_ZZ_311020221535.anuladas.recorte.csv",
+        "bytes": 1105,
+        "sha256": "a8139f524e69f435388e9d2dfdf96f31655e20b419b3fb60e9ca4f4de20f977a",
+        "criterio": "Todas as linhas com DS_TIPO_URNA = ANULADA, sem alteração dos bytes"
+      }
+    ]
+  },
+  {
+    "arquivo_zip": "Historico_Totalizacao_Presidente_BR_1T_2022.zip",
+    "zip_bytes": 1625754,
+    "zip_sha256": "55961aa1ecc87d0fd9c02730864f1b69a9f2eb3456327542dfc507217cd74a05",
+    "csv_original": "Historico_Totalizacao_Presidente_BR_1T_2022.csv",
+    "csv_bytes": 13804548,
+    "membros": [
+      {
+        "nome": "Historico_Totalizacao_Presidente_BR_1T_2022.csv",
+        "bytes": 13804548
+      },
+      {
+        "nome": "leiame.pdf",
+        "bytes": 407908
+      }
+    ],
+    "linhas_completas": 8437,
+    "recorte": "Historico_Totalizacao_Presidente_BR_1T_2022.recorte.csv",
+    "recorte_bytes": 8160,
+    "recorte_sha256": "7695506416eb00bc346ea33f7567220af5137b896266bc660812c7c12de05b15",
+    "criterio": "Cabeçalho, duas primeiras e duas últimas linhas não vazias, preservando bytes originais",
+    "campos": [
+      "DT_TOTALIZACAO",
+      "QT_SECOES_TOTAL",
+      "QT_APTOS_TOTAL",
+      "QT_SECOES_TOT",
+      "QT_SECOES_TOT_ACUMULADO",
+      "PE_SECOES_TOT_ACUMULADO",
+      "QT_APTOS_TOT",
+      "QT_APTOS_TOT_ACUMULADO",
+      "QT_VOTOS_TOTAL",
+      "QT_VOTOS_TOTAL_ACUMULADO",
+      "QT_VOTOS_CONCORRENTES",
+      "QT_VOTOS_CONCORRENTES_ACUMULADO",
+      "CIRO_GOMES_QT_VOTOS_TOT",
+      "CIRO_GOMES_QT_VOTOS_TOT_ACUMULADO",
+      "CIRO_GOMES_PE_VOTOS_TOT_ACUMULADO",
+      "LULA_QT_VOTOS_TOT",
+      "LULA_QT_VOTOS_TOT_ACUMULADO",
+      "LULA_PE_VOTOS_TOT_ACUMULADO",
+      "PADRE_KELMON_QT_VOTOS_TOT",
+      "PADRE_KELMON_QT_VOTOS_TOT_ACUMULADO",
+      "PADRE_KELMON_PE_VOTOS_TOT_ACUMULADO",
+      "SIMONE_TEBET_QT_VOTOS_TOT",
+      "SIMONE_TEBET_QT_VOTOS_TOT_ACUMULADO",
+      "SIMONE_TEBET_PE_VOTOS_TOT_ACUMULADO",
+      "VERA_QT_VOTOS_TOT",
+      "VERA_QT_VOTOS_TOT_ACUMULADO",
+      "VERA_PE_VOTOS_TOT_ACUMULADO",
+      "SOFIA_MANZANO_QT_VOTOS_TOT",
+      "SOFIA_MANZANO_QT_VOTOS_TOT_ACUMULADO",
+      "SOFIA_MANZANO_PE_VOTOS_TOT_ACUMULADO",
+      "JAIR_BOLSONARO_QT_VOTOS_TOT",
+      "JAIR_BOLSONARO_QT_VOTOS_TOT_ACUMULADO",
+      "JAIR_BOLSONARO_PE_VOTOS_TOT_ACUMULADO",
+      "CONSTITUINTE_EYMAEL_QT_VOTOS_TOT",
+      "CONSTITUINTE_EYMAEL_QT_VOTOS_TOT_ACUMULADO",
+      "CONSTITUINTE_EYMAEL_PE_VOTOS_TOT_ACUMULADO",
+      "FELIPE_DAVILA_QT_VOTOS_TOT",
+      "FELIPE_DAVILA_QT_VOTOS_TOT_ACUMULADO",
+      "FELIPE_DAVILA_PE_VOTOS_TOT_ACUMULADO",
+      "SORAYA_THRONICKE_QT_VOTOS_TOT",
+      "SORAYA_THRONICKE_QT_VOTOS_TOT_ACUMULADO",
+      "SORAYA_THRONICKE_PE_VOTOS_TOT_ACUMULADO",
+      "LEO_PERICLES_QT_VOTOS_TOT",
+      "LEO_PERICLES_QT_VOTOS_TOT_ACUMULADO",
+      "LEO_PERICLES_PE_VOTOS_TOT_ACUMULADO",
+      "BRANCO_QT_VOTOS_TOT",
+      "BRANCO_QT_VOTOS_TOT_ACUMULADO",
+      "BRANCO_PE_VOTOS_TOT_ACUMULADO",
+      "NULO_QT_VOTOS_TOT",
+      "NULO_QT_VOTOS_TOT_ACUMULADO",
+      "NULO_PE_VOTOS_TOT_ACUMULADO"
+    ],
+    "ultima_linha": {
+      "DT_TOTALIZACAO": "04/10/2022 10:27:34",
+      "QT_SECOES_TOTAL": "472075",
+      "QT_APTOS_TOTAL": "156454011",
+      "QT_SECOES_TOT": "1",
+      "QT_SECOES_TOT_ACUMULADO": "472075",
+      "PE_SECOES_TOT_ACUMULADO": "1,000000",
+      "QT_APTOS_TOT": "361",
+      "QT_APTOS_TOT_ACUMULADO": "156454011",
+      "QT_VOTOS_TOTAL": "220",
+      "QT_VOTOS_TOTAL_ACUMULADO": "123682372",
+      "QT_VOTOS_CONCORRENTES": "217",
+      "QT_VOTOS_CONCORRENTES_ACUMULADO": "118229719",
+      "CIRO_GOMES_QT_VOTOS_TOT": "2",
+      "CIRO_GOMES_QT_VOTOS_TOT_ACUMULADO": "3599287",
+      "CIRO_GOMES_PE_VOTOS_TOT_ACUMULADO": "0,030443",
+      "LULA_QT_VOTOS_TOT": "99",
+      "LULA_QT_VOTOS_TOT_ACUMULADO": "57259504",
+      "LULA_PE_VOTOS_TOT_ACUMULADO": "0,484307",
+      "PADRE_KELMON_QT_VOTOS_TOT": "0",
+      "PADRE_KELMON_QT_VOTOS_TOT_ACUMULADO": "81129",
+      "PADRE_KELMON_PE_VOTOS_TOT_ACUMULADO": "0,000686",
+      "SIMONE_TEBET_QT_VOTOS_TOT": "3",
+      "SIMONE_TEBET_QT_VOTOS_TOT_ACUMULADO": "4915423",
+      "SIMONE_TEBET_PE_VOTOS_TOT_ACUMULADO": "0,041575",
+      "VERA_QT_VOTOS_TOT": "0",
+      "VERA_QT_VOTOS_TOT_ACUMULADO": "25625",
+      "VERA_PE_VOTOS_TOT_ACUMULADO": "0,000217",
+      "SOFIA_MANZANO_QT_VOTOS_TOT": "0",
+      "SOFIA_MANZANO_QT_VOTOS_TOT_ACUMULADO": "45620",
+      "SOFIA_MANZANO_PE_VOTOS_TOT_ACUMULADO": "0,000386",
+      "JAIR_BOLSONARO_QT_VOTOS_TOT": "111",
+      "JAIR_BOLSONARO_QT_VOTOS_TOT_ACUMULADO": "51072345",
+      "JAIR_BOLSONARO_PE_VOTOS_TOT_ACUMULADO": "0,431976",
+      "CONSTITUINTE_EYMAEL_QT_VOTOS_TOT": "0",
+      "CONSTITUINTE_EYMAEL_QT_VOTOS_TOT_ACUMULADO": "16604",
+      "CONSTITUINTE_EYMAEL_PE_VOTOS_TOT_ACUMULADO": "0,000140",
+      "FELIPE_DAVILA_QT_VOTOS_TOT": "0",
+      "FELIPE_DAVILA_QT_VOTOS_TOT_ACUMULADO": "559708",
+      "FELIPE_DAVILA_PE_VOTOS_TOT_ACUMULADO": "0,004734",
+      "SORAYA_THRONICKE_QT_VOTOS_TOT": "2",
+      "SORAYA_THRONICKE_QT_VOTOS_TOT_ACUMULADO": "600955",
+      "SORAYA_THRONICKE_PE_VOTOS_TOT_ACUMULADO": "0,005083",
+      "LEO_PERICLES_QT_VOTOS_TOT": "0",
+      "LEO_PERICLES_QT_VOTOS_TOT_ACUMULADO": "53519",
+      "LEO_PERICLES_PE_VOTOS_TOT_ACUMULADO": "0,000453",
+      "BRANCO_QT_VOTOS_TOT": "2",
+      "BRANCO_QT_VOTOS_TOT_ACUMULADO": "1964779",
+      "BRANCO_PE_VOTOS_TOT_ACUMULADO": "0,015886",
+      "NULO_QT_VOTOS_TOT": "1",
+      "NULO_QT_VOTOS_TOT_ACUMULADO": "3487874",
+      "NULO_PE_VOTOS_TOT_ACUMULADO": "0,028200"
+    },
+    "recortes_adicionais": []
+  },
+  {
+    "arquivo_zip": "Historico_Totalizacao_Presidente_BR_2T_2022.zip",
+    "zip_bytes": 825276,
+    "zip_sha256": "1f12128fbcfacab755e0e83d9c0a350ed99ae68ea3d024aaa7bc58fe0c1dda3c",
+    "csv_original": "Historico_Totalizacao_Presidente_BR_2T_2022.csv",
+    "csv_bytes": 3700882,
+    "membros": [
+      {
+        "nome": "Historico_Totalizacao_Presidente_BR_2T_2022.csv",
+        "bytes": 3700882
+      },
+      {
+        "nome": "leiame.pdf",
+        "bytes": 396139
+      }
+    ],
+    "linhas_completas": 5286,
+    "recorte": "Historico_Totalizacao_Presidente_BR_2T_2022.recorte.csv",
+    "recorte_bytes": 3482,
+    "recorte_sha256": "e4f77dfb761e5baeeea9a2d3a38c0ba737dd12bc070ef88594e318ddc315b1b4",
+    "criterio": "Cabeçalho, duas primeiras e duas últimas linhas não vazias, preservando bytes originais",
+    "campos": [
+      "CD_PLEITO",
+      "CD_ELEICAO",
+      "CD_CARGO",
+      "SG_UE_UF",
+      "DT_TOTALIZACAO",
+      "QT_SECOES_TOTAL",
+      "QT_APTOS_TOTAL",
+      "QT_SECOES_TOT",
+      "QT_SECOES_TOT_ACUMULADO",
+      "PE_SECOES_TOT_ACUMULADO",
+      "QT_APTOS_TOT",
+      "QT_APTOS_TOT_ACUMULADO",
+      "QT_VOTOS_TOTAL",
+      "QT_VOTOS_TOTAL_ACUMULADO",
+      "QT_VOTOS_CONCORRENTES",
+      "QT_VOTOS_CONCORRENTES_ACUMULADO",
+      "LULA_QT_VOTOS_TOT",
+      "LULA_QT_VOTOS_TOT_ACUMULADO",
+      "LULA_PE_VOTOS_TOT_ACUMULADO",
+      "JAIR_BOLSONARO_QT_VOTOS_TOT",
+      "JAIR_BOLSONARO_QT_VOTOS_TOT_ACUMULADO",
+      "JAIR_BOLSONARO_PE_VOTOS_TOT_ACUMULADO",
+      "BRANCO_QT_VOTOS_TOT",
+      "BRANCO_QT_VOTOS_TOT_ACUMULADO",
+      "BRANCO_PE_VOTOS_TOT_ACUMULADO",
+      "NULO_QT_VOTOS_TOT",
+      "NULO_QT_VOTOS_TOT_ACUMULADO",
+      "NULO_PE_VOTOS_TOT_ACUMULADO"
+    ],
+    "ultima_linha": {
+      "CD_PLEITO": "407",
+      "CD_ELEICAO": "545",
+      "CD_CARGO": "1",
+      "SG_UE_UF": "BR",
+      "DT_TOTALIZACAO": "31/10/2022 00:18:04",
+      "QT_SECOES_TOTAL": "472075",
+      "QT_APTOS_TOTAL": "156454011",
+      "QT_SECOES_TOT": "1",
+      "QT_SECOES_TOT_ACUMULADO": "472075",
+      "PE_SECOES_TOT_ACUMULADO": "1,000000",
+      "QT_APTOS_TOT": "297",
+      "QT_APTOS_TOT_ACUMULADO": "156454011",
+      "QT_VOTOS_TOTAL": "209",
+      "QT_VOTOS_TOTAL_ACUMULADO": "124252796",
+      "QT_VOTOS_CONCORRENTES": "206",
+      "QT_VOTOS_CONCORRENTES_ACUMULADO": "118552353",
+      "LULA_QT_VOTOS_TOT": "174",
+      "LULA_QT_VOTOS_TOT_ACUMULADO": "60345999",
+      "LULA_PE_VOTOS_TOT_ACUMULADO": "0,509024",
+      "JAIR_BOLSONARO_QT_VOTOS_TOT": "32",
+      "JAIR_BOLSONARO_QT_VOTOS_TOT_ACUMULADO": "58206354",
+      "JAIR_BOLSONARO_PE_VOTOS_TOT_ACUMULADO": "0,490976",
+      "BRANCO_QT_VOTOS_TOT": "0",
+      "BRANCO_QT_VOTOS_TOT_ACUMULADO": "1769678",
+      "BRANCO_PE_VOTOS_TOT_ACUMULADO": "0,014243",
+      "NULO_QT_VOTOS_TOT": "3",
+      "NULO_QT_VOTOS_TOT_ACUMULADO": "3930765",
+      "NULO_PE_VOTOS_TOT_ACUMULADO": "0,031635"
+    },
+    "recortes_adicionais": []
+  }
+]

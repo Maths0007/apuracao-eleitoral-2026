@@ -1,0 +1,5 @@
+[
+  {"mode":"historico","year":"2022","round":"1","cycle":"ele2022","pleito":"406","election":"544","office":"1","contract":"bu-csv-2022-v1","channel":"bu-csv","source":"docs/amostras/2022/bweb_1t_AC_051020221321.recorte.csv; docs/tse-formatos.md §3 (ciclo)"},
+  {"mode":"historico","year":"2022","round":"2","cycle":"ele2022","pleito":"407","election":"545","office":"1","contract":"bu-csv-2022-v1","channel":"bu-csv","source":"docs/amostras/2022/bweb_2t_AC_311020221535.recorte.csv; docs/tse-formatos.md §3 (ciclo)"},
+  {"mode":"atual","year":"2026","round":"1","cycle":"ele2026","pleito":"3220","election":"6257","office":"1","contract":"ele-c-2026-v1","channel":"configuracao","source":"docs/amostras/configuracao-atual/ele-c.json: pl[].e[]"}
+]

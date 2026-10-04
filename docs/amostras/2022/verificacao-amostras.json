@@ -1,0 +1,38 @@
+[
+  {
+    "zip": "bweb_1t_AC_051020221321.zip",
+    "integridade_crc_zip": "OK",
+    "recortes_identicos_as_linhas_originais": "OK",
+    "validacao_votos_comparecimento_amostras": "OK"
+  },
+  {
+    "zip": "bweb_1t_ZZ_051020221321.zip",
+    "integridade_crc_zip": "OK",
+    "recortes_identicos_as_linhas_originais": "OK",
+    "validacao_votos_comparecimento_amostras": "OK"
+  },
+  {
+    "zip": "bweb_2t_AC_311020221535.zip",
+    "integridade_crc_zip": "OK",
+    "recortes_identicos_as_linhas_originais": "OK",
+    "validacao_votos_comparecimento_amostras": "OK"
+  },
+  {
+    "zip": "bweb_2t_ZZ_311020221535.zip",
+    "integridade_crc_zip": "OK",
+    "recortes_identicos_as_linhas_originais": "OK",
+    "validacao_votos_comparecimento_amostras": "OK"
+  },
+  {
+    "zip": "Historico_Totalizacao_Presidente_BR_1T_2022.zip",
+    "integridade_crc_zip": "OK",
+    "recortes_identicos_as_linhas_originais": "OK",
+    "validacao_votos_comparecimento_amostras": "não aplicável"
+  },
+  {
+    "zip": "Historico_Totalizacao_Presidente_BR_2T_2022.zip",
+    "integridade_crc_zip": "OK",
+    "recortes_identicos_as_linhas_originais": "OK",
+    "validacao_votos_comparecimento_amostras": "não aplicável"
+  }
+]

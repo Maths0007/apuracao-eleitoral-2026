@@ -1,0 +1,46 @@
+{
+  "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_AC_051020221321.zip",
+  "download_inicio": "2026-10-04T13:42:33.1597975-03:00",
+  "download_fim": "2026-10-04T13:42:33.9061565-03:00",
+  "status": 200,
+  "bytes": 6125666,
+  "headers": {
+    "ETag": [
+      "\"5d7862-5ea511c79cf85\""
+    ],
+    "Accept-Ranges": [
+      "bytes"
+    ],
+    "Access-Control-Allow-Origin": [
+      "*",
+      "*"
+    ],
+    "Access-Control-Allow-Headers": [
+      "*"
+    ],
+    "Access-Control-Allow-Methods": [
+      "POST, GET, OPTIONS, DELETE"
+    ],
+    "Cache-Control": [
+      "max-age=37341"
+    ],
+    "Date": [
+      "Sun, 04 Oct 2026 16:42:37 GMT"
+    ],
+    "Connection": [
+      "keep-alive"
+    ],
+    "Alt-Svc": [
+      "h3=\":443\"; ma=93600"
+    ],
+    "Last-Modified": [
+      "Wed, 05 Oct 2022 22:29:34 GMT"
+    ],
+    "Content-Type": [
+      "application/zip"
+    ],
+    "Content-Length": [
+      "6125666"
+    ]
+  }
+}

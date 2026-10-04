@@ -1,0 +1,46 @@
+{
+  "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/Historico_Totalizacao_Presidente_BR_2T_2022.zip",
+  "download_inicio": "2026-10-04T13:42:34.3226599-03:00",
+  "download_fim": "2026-10-04T13:42:34.6030411-03:00",
+  "status": 200,
+  "bytes": 825276,
+  "headers": {
+    "ETag": [
+      "\"c97bc-5ec6e320fb080\""
+    ],
+    "Accept-Ranges": [
+      "bytes"
+    ],
+    "Access-Control-Allow-Origin": [
+      "*",
+      "*"
+    ],
+    "Access-Control-Allow-Headers": [
+      "*"
+    ],
+    "Access-Control-Allow-Methods": [
+      "POST, GET, OPTIONS, DELETE"
+    ],
+    "Cache-Control": [
+      "max-age=9175"
+    ],
+    "Date": [
+      "Sun, 04 Oct 2026 16:42:38 GMT"
+    ],
+    "Connection": [
+      "keep-alive"
+    ],
+    "Alt-Svc": [
+      "h3=\":443\"; ma=93600"
+    ],
+    "Last-Modified": [
+      "Tue, 01 Nov 2022 20:01:54 GMT"
+    ],
+    "Content-Type": [
+      "application/zip"
+    ],
+    "Content-Length": [
+      "825276"
+    ]
+  }
+}
